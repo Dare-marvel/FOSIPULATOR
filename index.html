@@ -5,23 +5,68 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        margin: 0 auto;
-        width: 50%;
-        padding: 10px;
+        padding: 20px;
+        background-color: #f4f4f4;
       }
-      #result {
+      .title {
+        color: #333;
+      }
+      .input-field {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      .select-field {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      .calculate-button {
+        background-color: #4caf50;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 0;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+      }
+      .result {
         margin-top: 20px;
+        padding: 20px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background-color: #fff;
       }
     </style>
   </head>
   <body>
-    <h1>FOSIPULATOR</h1>
+    <h1 class="title">FOSIPULATOR</h1>
     <p>Enter your sequences (comma-separated):</p>
-    <input id="sequence1" type="text" placeholder="Sequence 1" size="50" />
+    <input
+      class="input-field"
+      id="sequence1"
+      type="text"
+      placeholder="Sequence 1"
+    />
     <br />
-    <input id="sequence2" type="text" placeholder="Sequence 2" size="50" />
+    <input
+      class="input-field"
+      id="sequence2"
+      type="text"
+      placeholder="Sequence 2"
+    />
     <br />
-    <select id="convolutionType" onchange="toggleInput()">
+    <select class="select-field" id="convolutionType" onchange="toggleInput()">
       <option value="linear">Linear Convolution</option>
       <option value="circular">Circular Convolution</option>
       <option value="correlation">Correlation</option>
@@ -29,9 +74,13 @@
       <option value="idft">IDFT</option>
     </select>
     <br />
-    <button onclick="calculate()">Get Result</button>
-    <div id="result"></div>
+    <button class="calculate-button" onclick="calculate()">Get Result</button>
+    <div class="result" id="result"></div>
 
+    <footer style="position: fixed; left: 0; bottom: 0; width: 100%; background-color: #333; color: white; text-align: center; padding: 10px;">
+        <p>Made with ❤️ by <a href="https://github.com/Dare-marvel/" target="_blank" style="color: #61dafb;">Dare-marvel</a></p>
+    </footer>
+    
     <script>
       function toggleInput() {
         let type = document.getElementById("convolutionType").value;
