@@ -14,13 +14,26 @@
       .container {
         flex: 1;
       }
+      .note {
+        background-color: #ffff99; /* Yellow background */
+        padding: 10px;
+        margin-bottom: 20px;
+      }
     </style>
     <title>FOSIPULATOR</title>
   </head>
   <body>
     <div class="container">
       <h1 class="text-center mt-5">FOSIPULATOR</h1>
+
       <p>Enter your sequences (comma-separated):</p>
+
+      <div class="note">
+        <p>
+          Note: Put real values in Sequence 1 and imaginary values in Sequence
+          2 for IDFT.
+        </p>
+      </div>
       <div class="form-group">
         <input
           class="form-control"
