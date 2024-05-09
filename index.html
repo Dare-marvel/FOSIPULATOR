@@ -1,86 +1,72 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FOSIPULATOR</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <style>
       body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
       }
-      .title {
-        color: #333;
-      }
-      .input-field {
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        box-sizing: border-box;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-      }
-      .select-field {
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        box-sizing: border-box;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-      }
-      .calculate-button {
-        background-color: #4caf50;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 10px 0;
-        cursor: pointer;
-        border: none;
-        border-radius: 4px;
-      }
-      .result {
-        margin-top: 20px;
-        padding: 20px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background-color: #fff;
+      .container {
+        flex: 1;
       }
     </style>
+    <title>FOSIPULATOR</title>
   </head>
   <body>
-    <h1 class="title">FOSIPULATOR</h1>
-    <p>Enter your sequences (comma-separated):</p>
-    <input
-      class="input-field"
-      id="sequence1"
-      type="text"
-      placeholder="Sequence 1"
-    />
-    <br />
-    <input
-      class="input-field"
-      id="sequence2"
-      type="text"
-      placeholder="Sequence 2"
-    />
-    <br />
-    <select class="select-field" id="convolutionType" onchange="toggleInput()">
-      <option value="linear">Linear Convolution</option>
-      <option value="circular">Circular Convolution</option>
-      <option value="correlation">Correlation</option>
-      <option value="dft">DFT</option>
-      <option value="idft">IDFT</option>
-    </select>
-    <br />
-    <button class="calculate-button" onclick="calculate()">Get Result</button>
-    <div class="result" id="result"></div>
-
-    <footer style="position: fixed; left: 0; bottom: 0; width: 100%; background-color: #333; color: white; text-align: center; padding: 10px;">
-        <p>Made with ❤️ by <a href="https://github.com/Dare-marvel/" target="_blank" style="color: #61dafb;">Dare-marvel</a></p>
+    <div class="container">
+      <h1 class="text-center mt-5">FOSIPULATOR</h1>
+      <p>Enter your sequences (comma-separated):</p>
+      <div class="form-group">
+        <input
+          class="form-control"
+          id="sequence1"
+          type="text"
+          placeholder="Sequence 1"
+        />
+        <input
+          class="form-control mt-3"
+          id="sequence2"
+          type="text"
+          placeholder="Sequence 2"
+        />
+        <select
+          class="form-control mt-3"
+          id="convolutionType"
+          onchange="toggleInput()"
+        >
+          <option value="linear">Linear Convolution</option>
+          <option value="circular">Circular Convolution</option>
+          <option value="correlation">Correlation</option>
+          <option value="dft">DFT</option>
+          <option value="idft">IDFT</option>
+        </select>
+        <button class="btn btn-primary mt-3" onclick="calculate()">
+          Get Result
+        </button>
+        <div class="mt-3" id="result"></div>
+      </div>
+    </div>
+    <footer class="footer mt-auto py-3 bg-dark text-center text-white">
+      <div class="container">
+        <span
+          >Made with ❤️ by
+          <a
+            href="https://github.com/Dare-marvel/"
+            target="_blank"
+            style="color: #61dafb"
+            >Dare-marvel</a
+          ></span
+        >
+      </div>
     </footer>
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <script>
       function toggleInput() {
         let type = document.getElementById("convolutionType").value;
